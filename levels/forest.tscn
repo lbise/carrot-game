@@ -37,8 +37,13 @@ shadow_enabled = true
 use_collision = true
 
 [node name="Ground" type="CSGBox3D" parent="Blockout" unique_id=1719110109]
-transform = Transform3D(2.1507533, 0, 0, 0, 1, 0, 0, 0, 3.6220229, -7.966934, -0.5, -101.81401)
-size = Vector3(156.79156, 1, 84.79535)
+transform = Transform3D(2.1507533, 0, 0, 0, 1, 0, 0, 0, 3.6220229, -48.22139, -0.5, -101.81401)
+size = Vector3(119.35867, 1, 84.79535)
+material = SubResource("StandardMaterial3D_l0rgr")
+
+[node name="Ground2" type="CSGBox3D" parent="Blockout" unique_id=743215502]
+transform = Transform3D(2.1507533, 0, 0, 0, 1, 0, 0, 0, 3.6220229, 156.06464, -0.5, -101.81401)
+size = Vector3(68.19252, 1, 84.79535)
 material = SubResource("StandardMaterial3D_l0rgr")
 
 [node name="Paths" type="CSGCombiner3D" parent="." unique_id=140938653]
@@ -53,6 +58,31 @@ transform = Transform3D(0.83787894, 0, -0.5458561, 0, 1, 0, 0.5458561, 0, 0.8378
 size = Vector3(3, 0.02, 11.145264)
 material = SubResource("StandardMaterial3D_3xh4f")
 
+[node name="PathSegment3" type="CSGBox3D" parent="Paths" unique_id=113157765]
+transform = Transform3D(1.6267341, 0, -0.1659512, 0, 1, 0, 0.27243719, 0, 0.9909018, 13.027292, 0.01, -31.592834)
+size = Vector3(3, 0.02, 21.352478)
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="PathSegment4" type="CSGBox3D" parent="Paths" unique_id=1178554713]
+transform = Transform3D(1.1975148, 0, -0.690891, 0, 1, 0, 1.1342152, 0, 0.729449, 21.563929, 0.01, -48.6198)
+size = Vector3(3, 0.02, 21.352478)
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="PathSegment5" type="CSGBox3D" parent="Paths" unique_id=1475367201]
+transform = Transform3D(0.17549258, 0, -0.99899894, 0, 1, 0, 1.6400268, 0, 0.106898785, 38.492393, 0.01, -56.525894)
+size = Vector3(3, 0.02, 21.352478)
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="PathSegment6" type="CSGBox3D" parent="Paths" unique_id=1098169632]
+transform = Transform3D(0.17549258, 0, -0.99899894, 0, 1, 0, 1.6400268, 0, 0.106898785, 70.42776, 0.01, -60.06381)
+size = Vector3(3, 0.02, 19.491669)
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="PathSegment7" type="CSGBox3D" parent="Paths" unique_id=98532572]
+transform = Transform3D(0.08548028, 0, -1.0033519, 0, 1, 0, 1.6471729, 0, 0.052069083, 96.48468, 0.01, -61.67055)
+size = Vector3(3, 0.02, 27.118393)
+material = SubResource("StandardMaterial3D_3xh4f")
+
 [node name="Clearing" type="CSGCylinder3D" parent="Paths" unique_id=882090683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 25)
 radius = 4.0
@@ -61,7 +91,21 @@ sides = 16
 material = SubResource("StandardMaterial3D_3xh4f")
 
 [node name="Clearing2" type="CSGCylinder3D" parent="Paths" unique_id=1744544701]
-transform = Transform3D(1.9582654, 0, 0, 0, 1.9582654, 0, 0, 0, 1.9582654, 7.3045015, 0.01, -14.881009)
+transform = Transform3D(1.9582654, 0, 0, 0, 1.9582654, 0, 0, 0, 1.9582654, 9.71017, 0.01, -14.881009)
+radius = 4.0
+height = 0.02
+sides = 16
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="Clearing3" type="CSGCylinder3D" parent="Paths" unique_id=1301505882]
+transform = Transform3D(1.9582654, 0, 0, 0, 1.9582654, 0, 0, 0, 1.9582654, 55.517193, 0.01, -58.737564)
+radius = 4.0
+height = 0.02
+sides = 16
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="Clearing4" type="CSGCylinder3D" parent="Paths" unique_id=380288515]
+transform = Transform3D(3.2937565, 0, 0, 0, 1.9582654, 0, 0, 0, 2.8992786, 121.14697, 0.01, -62.200974)
 radius = 4.0
 height = 0.02
 sides = 16
