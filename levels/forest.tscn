@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cjs56etpobmgo"]
+
+[ext_resource type="Script" uid="uid://clt032ehn33u" path="res://levels/level.gd" id="1_qr3re"]
+[ext_resource type="PackedScene" path="res://rabbit/rabbit.tscn" id="2_1wu5g"]
+[ext_resource type="Script" uid="uid://de860qihok50k" path="res://camera/follow_camera.gd" id="4_let1y"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="5_g87af"]
+[ext_resource type="AudioStream" uid="uid://iq54v8jxx73u" path="res://sounds/kenney/music-jingles/Pizzicato jingles/jingles_PIZZI00.ogg" id="7_7ihad"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xag4j"]
+
+[sub_resource type="Sky" id="Sky_pgbyh"]
+sky_material = SubResource("ProceduralSkyMaterial_xag4j")
+
+[sub_resource type="Environment" id="Environment_68kkm"]
+background_mode = 2
+sky = SubResource("Sky_pgbyh")
+ambient_light_source = 3
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0rgr"]
+albedo_color = Color(0.62, 0.62, 0.62, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xh4f"]
+albedo_color = Color(0.86, 0.76, 0.55, 1)
+
+[node name="Forest" type="Node3D" unique_id=1712897913]
+script = ExtResource("1_qr3re")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=3432313]
+environment = SubResource("Environment_68kkm")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1227674186]
+transform = Transform3D(0.8660254, -0.38302222, 0.32139382, 0, 0.64278764, 0.76604444, -0.5, -0.66341394, 0.5566704, 0, 13.195553, 0)
+shadow_enabled = true
+
+[node name="Blockout" type="CSGCombiner3D" parent="." unique_id=1619207896]
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="Blockout" unique_id=1719110109]
+transform = Transform3D(2.1507533, 0, 0, 0, 1, 0, 0, 0, 3.6220229, -7.966934, -0.5, -101.81401)
+size = Vector3(156.79156, 1, 84.79535)
+material = SubResource("StandardMaterial3D_l0rgr")
+
+[node name="Paths" type="CSGCombiner3D" parent="." unique_id=140938653]
+
+[node name="PathSegment" type="CSGBox3D" parent="Paths" unique_id=1954480582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 11.449951)
+size = Vector3(3, 0.02, 23.100098)
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="PathSegment2" type="CSGBox3D" parent="Paths" unique_id=834444752]
+transform = Transform3D(0.83787894, 0, -0.5458561, 0, 1, 0, 0.5458561, 0, 0.83787894, 2.785077, 0.01, -3.811562)
+size = Vector3(3, 0.02, 11.145264)
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="Clearing" type="CSGCylinder3D" parent="Paths" unique_id=882090683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 25)
+radius = 4.0
+height = 0.02
+sides = 16
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="Clearing2" type="CSGCylinder3D" parent="Paths" unique_id=1744544701]
+transform = Transform3D(1.9582654, 0, 0, 0, 1.9582654, 0, 0, 0, 1.9582654, 7.3045015, 0.01, -14.881009)
+radius = 4.0
+height = 0.02
+sides = 16
+material = SubResource("StandardMaterial3D_3xh4f")
+
+[node name="Rabbit" parent="." unique_id=1921205490 instance=ExtResource("2_1wu5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="FollowCamera" type="Camera3D" parent="." unique_id=1535382650 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 8)
+script = ExtResource("4_let1y")
+target = NodePath("../Rabbit")
+
+[node name="HUD" parent="." unique_id=1346925710 instance=ExtResource("5_g87af")]
+
+[node name="WinJingle" type="AudioStreamPlayer" parent="." unique_id=448699514]
+stream = ExtResource("7_7ihad")
+
+[node name="Carrots" type="Node3D" parent="." unique_id=1251585925]

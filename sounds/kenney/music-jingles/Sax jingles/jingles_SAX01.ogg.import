@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://doknwpcfikgbs"
+path="res://.godot/imported/jingles_SAX01.ogg-4d7ab6b0d26c6e5aecac41ef0a8053aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/kenney/music-jingles/Sax jingles/jingles_SAX01.ogg"
+dest_files=["res://.godot/imported/jingles_SAX01.ogg-4d7ab6b0d26c6e5aecac41ef0a8053aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,146 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://rabbit/rabbit.gd" id="1_0r1lj"]
+[ext_resource type="AudioStream" path="res://sounds/kenney/digital-audio/phaseJump1.ogg" id="2_kfks6"]
+[ext_resource type="AudioStream" path="res://sounds/kenney/impact-sounds/footstep_grass_000.ogg" id="3_soigc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45myt"]
+radius = 0.3
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cl2xv"]
+albedo_color = Color(0.93, 0.9, 0.86, 1)
+roughness = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_wldfi"]
+radius = 0.3
+height = 0.6
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_ttb04"]
+radius = 0.2
+height = 0.4
+radial_segments = 12
+rings = 6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ogfw"]
+radius = 0.055
+height = 0.38
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7jdo"]
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+roughness = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_gyg2e"]
+radius = 0.03
+height = 0.06
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_2gdo6"]
+radius = 0.03
+height = 0.06
+radial_segments = 12
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt8ho"]
+albedo_color = Color(1, 0.6, 0.7, 1)
+roughness = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_bo0xm"]
+radius = 0.025
+height = 0.05
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_ilcb3"]
+radius = 0.09
+height = 0.18
+radial_segments = 12
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47p56"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_d68dr"]
+material = SubResource("StandardMaterial3D_47p56")
+size = Vector3(0.08, 0.08, 0.01)
+
+[sub_resource type="Gradient" id="Gradient_vaxn8"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.84313726, 0, 1, 0.2, 0.8, 0.3, 1, 0.2, 0.5, 1, 1, 0.9, 0.3, 0.9, 1)
+
+[node name="Rabbit" type="CharacterBody3D" unique_id=1921205490]
+script = ExtResource("1_0r1lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1311129631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_45myt")
+
+[node name="Model" type="Node3D" parent="." unique_id=1883414119]
+
+[node name="Body" type="MeshInstance3D" parent="Model" unique_id=699036345]
+transform = Transform3D(1, 0, 0, 0, 0.95, 0, 0, 0, 1.15, 0, 0.32, 0.05)
+material_override = SubResource("StandardMaterial3D_cl2xv")
+mesh = SubResource("SphereMesh_wldfi")
+
+[node name="Head" type="MeshInstance3D" parent="Model" unique_id=1675659091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, -0.2)
+material_override = SubResource("StandardMaterial3D_cl2xv")
+mesh = SubResource("SphereMesh_ttb04")
+
+[node name="EarLeft" type="MeshInstance3D" parent="Model" unique_id=191211271]
+transform = Transform3D(0.9781476, -0.2079117, 0, 0.20475306, 0.96328735, 0.10418891, -0.036103487, -0.16985355, 0.5908847, -0.08, 0.98, -0.18)
+material_override = SubResource("StandardMaterial3D_cl2xv")
+mesh = SubResource("CapsuleMesh_2ogfw")
+
+[node name="EarRight" type="MeshInstance3D" parent="Model" unique_id=1738842724]
+transform = Transform3D(0.9781476, 0.2079117, 0, -0.20475306, 0.96328735, 0.10418891, 0.036103487, -0.16985355, 0.5908847, 0.08, 0.98, -0.18)
+material_override = SubResource("StandardMaterial3D_cl2xv")
+mesh = SubResource("CapsuleMesh_2ogfw")
+
+[node name="EyeLeft" type="MeshInstance3D" parent="Model" unique_id=982318552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0.71, -0.37)
+material_override = SubResource("StandardMaterial3D_v7jdo")
+mesh = SubResource("SphereMesh_gyg2e")
+
+[node name="EyeRight" type="MeshInstance3D" parent="Model" unique_id=1501587945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.71, -0.37)
+material_override = SubResource("StandardMaterial3D_v7jdo")
+mesh = SubResource("SphereMesh_2gdo6")
+
+[node name="Nose" type="MeshInstance3D" parent="Model" unique_id=1505416408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, -0.4)
+material_override = SubResource("StandardMaterial3D_xt8ho")
+mesh = SubResource("SphereMesh_bo0xm")
+
+[node name="Tail" type="MeshInstance3D" parent="Model" unique_id=1191966672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0.4)
+material_override = SubResource("StandardMaterial3D_cl2xv")
+mesh = SubResource("SphereMesh_ilcb3")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=688833441]
+stream = ExtResource("2_kfks6")
+volume_db = -4.0
+
+[node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=23284347]
+stream = ExtResource("3_soigc")
+volume_db = -8.0
+
+[node name="Confetti" type="CPUParticles3D" parent="." unique_id=114792239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+emitting = false
+amount = 120
+lifetime = 2.5
+one_shot = true
+explosiveness = 0.9
+mesh = SubResource("BoxMesh_d68dr")
+direction = Vector3(0, 1, 0)
+spread = 50.0
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color_initial_ramp = SubResource("Gradient_vaxn8")
